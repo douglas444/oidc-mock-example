@@ -1,3 +1,4 @@
+import io.quarkus.oidc.IdToken;
 import io.quarkus.qute.Location;
 import io.quarkus.qute.Template;
 import io.quarkus.security.Authenticated;
@@ -16,13 +17,14 @@ public class WelcomeResource {
     @Location("welcome.html")
     Template template;
 
+    @IdToken
     @Inject
     JsonWebToken idToken;
 
     @GET
     @Produces(MediaType.TEXT_HTML)
     public Response welcome() {
-        return Response.ok(this.template.data("name", this.idToken.getClaim("preferred_username")).render()).build();
+        return Response.ok(this.template.data("aud", this.idToken.getClaim("aud")).render()).build();
     }
 
 }

@@ -1,0 +1,40 @@
+{
+  "realm": "quarkus",
+  "enabled": true,
+  "id": "quarkus-realm",
+  "clients": [
+    {
+      "clientId": "quarkus-app",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "secret",
+      "redirectUris": [
+        "http://localhost:8080/*"
+      ],
+      "directAccessGrantsEnabled": true,
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": false,
+      "authorizationServicesEnabled": true,
+      "webOrigins": ["*"]
+    }
+  ],
+  "users": [
+    {
+      "username": "alice",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Alice",
+      "lastName": "Joe",
+      "email": "not@real.email",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "alice",
+          "temporary": false
+        }
+      ]
+    }
+  ]
+}

@@ -26,7 +26,7 @@ public class WelcomeResourceTest {
 
             page = form.getInputByValue("login").click();
 
-            assertEquals("alice", page.getBody().asNormalizedText());
+            assertEquals("Welcome", page.getTitleText());
         }
     }
 
